@@ -17,6 +17,11 @@ class Body extends StatelessWidget {
           HeaderWithSearchBox(size, context),
           TitleWithMoreBtn(press: () {}, title: 'Recommended'),
           Container(
+            margin: EdgeInsets.only(
+                left: kDefaultPadding,
+                top: kDefaultPadding / 2,
+                bottom: kDefaultPadding * 2.5),
+            color: kPrimaryColor,
             child: Column(
               children: [
                 Image.asset('assets/images/image_1.png'),
@@ -29,6 +34,29 @@ class Body extends StatelessWidget {
                           offset: Offset(0, 10),
                           blurRadius: 50,
                           color: kPrimaryColor.withOpacity(.23))
+                    ],
+                  ),
+                  child: Row(
+                    children: [
+                      RichText(
+                          text: TextSpan(children: [
+                        TextSpan(
+                          text: "Samantha\n".toUpperCase(),
+                          style: Theme.of(context).textTheme.button,
+                        ),
+                        TextSpan(
+                            text: "Russia".toUpperCase(),
+                            style:
+                                TextStyle(color: kPrimaryColor.withOpacity(.5)))
+                      ])),
+                      Spacer(),
+                      Text(
+                        "\$440",
+                        style: Theme.of(context)
+                            .textTheme
+                            .button
+                            ?.copyWith(color: kPrimaryColor),
+                      )
                     ],
                   ),
                 )
