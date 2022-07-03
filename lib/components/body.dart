@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:plant_app_ui/components/recoment_plant_card.dart';
 import 'package:plant_app_ui/components/title_with_more_btn.dart';
 import 'package:plant_app_ui/constants.dart';
 
@@ -16,55 +16,49 @@ class Body extends StatelessWidget {
         children: [
           HeaderWithSearchBox(size, context),
           TitleWithMoreBtn(press: () {}, title: 'Recommended'),
-          Container(
-            margin: EdgeInsets.only(
-                left: kDefaultPadding,
-                top: kDefaultPadding / 2,
-                bottom: kDefaultPadding * 2.5),
-            color: kPrimaryColor,
-            child: Column(
-              children: [
-                Image.asset('assets/images/image_1.png'),
-                Container(
-                  padding: EdgeInsets.all(kDefaultPadding / 2),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    boxShadow: [
-                      BoxShadow(
-                          offset: Offset(0, 10),
-                          blurRadius: 50,
-                          color: kPrimaryColor.withOpacity(.23))
-                    ],
-                  ),
-                  child: Row(
-                    children: [
-                      RichText(
-                          text: TextSpan(children: [
-                        TextSpan(
-                          text: "Samantha\n".toUpperCase(),
-                          style: Theme.of(context).textTheme.button,
-                        ),
-                        TextSpan(
-                            text: "Russia".toUpperCase(),
-                            style:
-                                TextStyle(color: kPrimaryColor.withOpacity(.5)))
-                      ])),
-                      Spacer(),
-                      Text(
-                        "\$440",
-                        style: Theme.of(context)
-                            .textTheme
-                            .button
-                            ?.copyWith(color: kPrimaryColor),
-                      )
-                    ],
-                  ),
-                )
-              ],
-            ),
-          )
+          RecomendPlants(),
+          TitleWithMoreBtn(press: () {}, title: 'Recommended'),
         ],
       ),
     );
   }
 }
+
+class RecomendPlants extends StatelessWidget {
+  const RecomendPlants({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        children: [
+          RecommendPlantCard(
+            onpress: () {},
+            price: 400,
+            image: 'assets/images/image_1.png',
+            title: 'Samantha',
+            country: 'Russia',
+          ),
+          RecommendPlantCard(
+            onpress: () {},
+            price: 400,
+            image: 'assets/images/image_2.png',
+            title: 'Samantha',
+            country: 'Russia',
+          ),
+          RecommendPlantCard(
+            onpress: () {},
+            price: 400,
+            image: 'assets/images/image_3.png',
+            title: 'Samantha',
+            country: 'Sri Lanka',
+          ),
+        ],
+      ),
+    );
+  }
+}
+
