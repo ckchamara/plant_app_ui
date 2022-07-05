@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:plant_app_ui/components/recoment_plant_card.dart';
-import 'package:plant_app_ui/components/title_with_more_btn.dart';
-import 'package:plant_app_ui/constants.dart';
 
+import 'package:plant_app_ui/constants.dart';
+import 'package:plant_app_ui/screens/home/components/recoment_plant_card.dart';
+import 'package:plant_app_ui/screens/home/components/title_with_more_btn.dart';
+
+import 'feature_plant_card.dart';
 import 'header_with_search_box.dart';
+
 
 class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);
@@ -17,12 +20,34 @@ class Body extends StatelessWidget {
           HeaderWithSearchBox(size, context),
           TitleWithMoreBtn(press: () {}, title: 'Recommended'),
           RecomendPlants(),
-          TitleWithMoreBtn(press: () {}, title: 'Recommended'),
+          TitleWithMoreBtn(press: () {}, title: 'Featured Plants'),
+          FeaturedPlants(),
+          SizedBox(height: kDefaultPadding,)
         ],
       ),
     );
   }
 }
+
+class FeaturedPlants extends StatelessWidget {
+  const FeaturedPlants({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        children: [
+          FeaturePlantCard(onpress: () {},image: 'assets/images/bottom_img_1.png'),
+          FeaturePlantCard(onpress: () {},image: 'assets/images/bottom_img_2.png'),
+        ],
+      ),
+    );
+  }
+}
+
 
 class RecomendPlants extends StatelessWidget {
   const RecomendPlants({
@@ -61,4 +86,3 @@ class RecomendPlants extends StatelessWidget {
     );
   }
 }
-

@@ -4,33 +4,42 @@ import 'package:plant_app_ui/constants.dart';
 class TitleWithMoreBtn extends StatelessWidget {
   final String title;
   final void Function() press;
+
   const TitleWithMoreBtn({
-    Key? key, required this.title, required this.press,
+    Key? key,
+    required this.title,
+    required this.press,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding, vertical: kDefaultPadding),
+      // padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding, vertical: kDefaultPadding),
+      padding: const EdgeInsets.only(
+          top: kDefaultPadding,
+          bottom: kDefaultPadding / 3,
+          left: kDefaultPadding,
+          right: kDefaultPadding),
       child: Row(
         children: [
-          TileWithCustomUnderline(text: 'Reccomended'),
+          TileWithCustomUnderline(text: title),
           Spacer(),
           TextButton(
             onPressed: press,
-            child: Text("More", style: TextStyle(color: Colors.white),),
+            child: Text(
+              "More",
+              style: TextStyle(color: Colors.white),
+            ),
             style: ButtonStyle(
                 shape: MaterialStateProperty.all(RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20))),
-                backgroundColor: MaterialStateProperty.all(kPrimaryColor)
-            ),
+                backgroundColor: MaterialStateProperty.all(kPrimaryColor)),
           )
         ],
       ),
     );
   }
 }
-
 
 class TileWithCustomUnderline extends StatelessWidget {
   final String text;

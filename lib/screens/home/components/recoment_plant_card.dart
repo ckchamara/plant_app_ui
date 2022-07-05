@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../constants.dart';
+import '../../../constants.dart';
 
 class RecommendPlantCard extends StatelessWidget {
   final String image, title, country;
@@ -22,7 +22,7 @@ class RecommendPlantCard extends StatelessWidget {
       margin: EdgeInsets.only(
           left: kDefaultPadding,
           top: kDefaultPadding / 2,
-          bottom: kDefaultPadding * 2.5),
+          bottom: kDefaultPadding*1.1),
       width: size.width * .4,
       child: Column(
         children: [
@@ -38,23 +38,23 @@ class RecommendPlantCard extends StatelessWidget {
                 color: Colors.white,
                 boxShadow: [
                   BoxShadow(
-                      offset: Offset(0, 10),
-                      blurRadius: 50,
-                      color: kPrimaryColor.withOpacity(.23))
+                      offset: Offset(0, 5),
+                      blurRadius: 15,
+                      color: kPrimaryColor.withOpacity(.20))
                 ],
               ),
               child: Row(
                 children: [
                   RichText(
                       text: TextSpan(children: [
-                        TextSpan(
-                          text: "$title\n".toUpperCase(),
-                          style: Theme.of(context).textTheme.button,
-                        ),
-                        TextSpan(
-                            text: country.toUpperCase(),
-                            style: TextStyle(color: kPrimaryColor.withOpacity(.5)))
-                      ])),
+                    TextSpan(
+                      text: "$title\n".toUpperCase(),
+                      style: Theme.of(context).textTheme.button,
+                    ),
+                    TextSpan(
+                        text: country.toUpperCase(),
+                        style: TextStyle(color: kPrimaryColor.withOpacity(.5)))
+                  ])),
                   Spacer(),
                   Text(
                     "\$$price",
