@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
 import 'package:plant_app_ui/constants.dart';
-import 'package:plant_app_ui/screens/home/components/recoment_plant_card.dart';
+import 'package:plant_app_ui/screens/home/components/recomend_plant_card.dart';
 import 'package:plant_app_ui/screens/home/components/title_with_more_btn.dart';
 
+import '../../details/details_screen.dart';
 import 'feature_plant_card.dart';
 import 'header_with_search_box.dart';
 
@@ -61,21 +62,27 @@ class RecomendPlants extends StatelessWidget {
       child: Row(
         children: [
           RecommendPlantCard(
-            onpress: () {},
+            onpress: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => DetailsScreen()));
+            },
             price: 400,
             image: 'assets/images/image_1.png',
             title: 'Samantha',
             country: 'Russia',
           ),
           RecommendPlantCard(
-            onpress: () {},
+            onpress: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => DetailsScreen()));
+            },
             price: 400,
             image: 'assets/images/image_2.png',
             title: 'Samantha',
             country: 'Russia',
           ),
           RecommendPlantCard(
-            onpress: () {},
+            onpress: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => DetailsScreen()));
+            },
             price: 400,
             image: 'assets/images/image_3.png',
             title: 'Samantha',
